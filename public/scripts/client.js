@@ -54,10 +54,10 @@ const loadTweets = function() {
     method: 'GET',
     dataType: 'json',
     success: function(response) {
-    renderTweets(response); // Call renderTweets with the response array of tweets
-},
+      renderTweets(response); // Call renderTweets with the response array of tweets
+    },
     error: function(error) {
-    console.error('Error loading tweets:', error);
+      console.error('Error loading tweets:', error);
     }
   });
 };
@@ -108,6 +108,17 @@ $(document).ready(function() {
   // Event listener for form submission
   $('form').submit(function(event) {
     event.preventDefault(); // Prevent default form submission behavior
+
+const tweetContent = $('#tweet-text').val();
+
+// Check if the tweet content is empty or exceeds the character limit
+    if (!tweetContent || tweetContent.trim().length === 0) {
+      alert('Please enter a tweet.'); // Display an alert for empty tweet content
+      return; // Stop further execution
+    } else if (tweetContent.length > 140) {
+      alert('Tweet is too long. Please limit your tweet to 140 characters.'); // Display an alert for exceeding character limit
+      return; // Stop further execution
+    }
       
     // Serialize the form data
     const formData = $(this).serialize();
