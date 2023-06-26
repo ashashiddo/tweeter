@@ -3,6 +3,7 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+  
 const createTweetElement = function(tweet) {
   // Create a new article element for the tweet
   const $tweet = $("<article>").addClass("tweet");
@@ -32,6 +33,7 @@ const createTweetElement = function(tweet) {
   // Return the created tweet element
   return $tweet;
 };
+
   
 const renderTweets = function(tweets) {
   // Empty the tweets container
@@ -88,5 +90,28 @@ const data = [
 ];
   
 renderTweets(data);
-  
 
+$(document).ready(function() {
+  // Event listener for form submission
+  $('form').submit(function(event) {
+    event.preventDefault(); // Prevent default form submission behavior
+      
+    // Serialize the form data
+    const formData = $(this).serialize();
+      
+    // Send the AJAX POST request
+    $.ajax({
+      url: '/tweets/',
+      method: 'POST',
+      data: formData,
+      success: function(response) {
+        // Handle the successful response
+        console.log('Tweet submitted successfully:', response);
+      },
+      error: function(error) {
+        // Handle any errors
+        console.error('Error submitting tweet:', error);
+      }
+    });
+  });
+});
