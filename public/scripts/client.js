@@ -48,7 +48,21 @@ const renderTweets = function(tweets) {
     $("#tweets-container").append($tweet);
   }
 };
-  
+
+const loadTweets = function() {
+  $.ajax({
+    url: '/tweets',
+    method: 'GET',
+    dataType: 'json',
+    success: function(response) {
+    renderTweets(response); // Call renderTweets with the response array of tweets
+},
+    error: function(error) {
+    console.error('Error loading tweets:', error);
+    }
+  });
+};
+    
 const tweetData = {
   "user": {
     "name": "Newton",
