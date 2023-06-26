@@ -109,9 +109,9 @@ $(document).ready(function() {
   $('form').submit(function(event) {
     event.preventDefault(); // Prevent default form submission behavior
 
-const tweetContent = $('#tweet-text').val();
+    const tweetContent = $('#tweet-text').val();
 
-// Check if the tweet content is empty or exceeds the character limit
+    // Check if the tweet content is empty or exceeds the character limit
     if (!tweetContent || tweetContent.trim().length === 0) {
       alert('Please enter a tweet.'); // Display an alert for empty tweet content
       return; // Stop further execution
@@ -129,8 +129,12 @@ const tweetContent = $('#tweet-text').val();
       method: 'POST',
       data: formData,
       success: function(response) {
-        // Handle the successful response
-        console.log('Tweet submitted successfully:', response);
+        // Create a new tweet element for the newly created tweet
+        const $newTweet = createTweetElement(response);
+        // Append the new tweet to the tweets container
+        $("#tweets-container").prepend($newTweet);
+        // Clear the tweet input after successful submission
+        $('#tweet-text').val('');
       },
       error: function(error) {
         // Handle any errors
