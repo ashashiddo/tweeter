@@ -15,10 +15,9 @@ const createTweetElement = function(tweet) {
   const $handle = $("<span>").addClass("handle").text(tweet.user.handle);
   $header.append($avatar, $username, $handle);
   
-  const $content = $("<div>").addClass("tweet-content").text(tweet.content.text);
-  
+  const $content = $("<div>").addClass("tweet-content").text(tweet.created_at);
   const $footer = $("<footer>").addClass("tweet-footer");
-  const $timestamp = $("<span>").addClass("timestamp").text(moment(tweet.created_at).fromNow());
+  const $timestamp = $("<span>").addClass("timestamp").text($.timeago(tweet.created_at).fromNow());
   const $icons = $("<div>").addClass("icons");
   const $flagIcon = $("<i>").addClass("fas fa-flag");
   const $retweetIcon = $("<i>").addClass("fas fa-retweet");
@@ -128,4 +127,7 @@ $(document).ready(function() {
       }
     });
   });
+
+  loadTweets(); // Call loadTweets to fetch and render the tweets on page load
+  
 });
