@@ -130,3 +130,12 @@
     cursor: pointer;
   }
   
+  /* Change color of individual tweet icons on hover */
+.tweet .tweet-icons i:hover {
+    color: #1da1f2;
+  }
+
+  /* Reset color of tweet icons when not hovered */
+.tweet .tweet-icons i:not(:hover) {
+    color: gray;
+  }
