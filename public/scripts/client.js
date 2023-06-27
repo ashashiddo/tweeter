@@ -15,9 +15,9 @@ const createTweetElement = function(tweet) {
   const $handle = $("<span>").addClass("handle").text(tweet.user.handle);
   $header.append($avatar, $username, $handle);
   
-  const $content = $("<div>").addClass("tweet-content").text(tweet.created_at);
+  const $content = $("<div>").addClass("tweet-content").text(tweet.content.text);
   const $footer = $("<footer>").addClass("tweet-footer");
-  const $timestamp = $("<span>").addClass("timestamp").text($.timeago(tweet.created_at).fromNow());
+  const $timestamp = $("<span>").addClass("timestamp").text($.timeago(tweet.created_at));
   const $icons = $("<div>").addClass("icons");
   const $flagIcon = $("<i>").addClass("fas fa-flag");
   const $retweetIcon = $("<i>").addClass("fas fa-retweet");
@@ -33,18 +33,27 @@ const createTweetElement = function(tweet) {
   return $tweet;
 };
 
+// Function to escape text to prevent XSS attacks
+const escape = function(str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
   
-const renderTweets = function(tweets) {
+
+  
+const renderTweets = function(tweets_data) {
   // Empty the tweets container
-  $("#tweets-container").empty();
-  
+  $(".tweets-container").empty();
+  console.log(tweets_data);
   // Loop through the array of tweets
-  for (const tweet of tweets) {
+    for (i = 0; i < tweets_data?.length; i++) {
+        const tweet = tweets_data[i];
     // Create a new tweet element using the createTweetElement function
     const $tweet = createTweetElement(tweet);
   
     // Append the tweet element to the tweets container
-    $("#tweets-container").append($tweet);
+    $(".tweets-container").append($tweet);
   }
 };
 
@@ -74,8 +83,8 @@ const tweetData = {
   "created_at": 1461116232227
 };
   
-const $tweet = createTweetElement(tweetData);
-console.log($tweet); // View the created tweet element
+// const $tweet = createTweetElement(tweetData);
+// console.log($tweet); // View the created tweet element
   
 const data = [
   {
@@ -101,48 +110,64 @@ const data = [
     "created_at": 1461113959088
   }
 ];
-  
-renderTweets(data);
 
 $(document).ready(function() {
-  // Event listener for form submission
-  $('form').submit(function(event) {
-    event.preventDefault(); // Prevent default form submission behavior
+  const $errorContainer = $('.error-message');
+  
+  // Function to append an error message to the error container
+  const appendError = function(errorMessage) {
+    $errorContainer.text(errorMessage).slideDown();
+  };
+  
+  // Function to remove the error message from the error container
+  const removeError = function() {
+    $errorContainer.text('').slideUp();
+  };
+  
+  // Function to reset the character counter
+  const resetCounter = function() {
+    $('.counter').text('140');
+  };
+  
+  // Load tweets on page load
+  loadTweets();
+  
+  // Form submit handler
+  const $submitTweet = $('#tweet-form');
+  $submitTweet.on('submit', function(e) {
+    e.preventDefault();
 
+    // Get the tweet content
     const tweetContent = $('#tweet-text').val();
-
-    // Check if the tweet content is empty or exceeds the character limit
+    
+    // Clear previous error messages and slide up the error container
+    removeError();
+    
+    // Check for empty tweet
     if (!tweetContent || tweetContent.trim().length === 0) {
-      alert('Please enter a tweet.'); // Display an alert for empty tweet content
-      return; // Stop further execution
-    } else if (tweetContent.length > 140) {
-      alert('Tweet is too long. Please limit your tweet to 140 characters.'); // Display an alert for exceeding character limit
-      return; // Stop further execution
+      appendError('You cannot post a blank tweet');
+      return;
     }
-      
+    
+    // Check for tweet length exceeding limit
+    if (tweetContent.length > 140) {
+      appendError('Your tweet is too long!');
+      return;
+    }
+    
     // Serialize the form data
     const formData = $(this).serialize();
-      
+    
     // Send the AJAX POST request
-    $.ajax({
-      url: '/tweets/',
-      method: 'POST',
-      data: formData,
-      success: function(response) {
-        // Create a new tweet element for the newly created tweet
-        const $newTweet = createTweetElement(response);
-        // Append the new tweet to the tweets container
-        $("#tweets-container").prepend($newTweet);
-        // Clear the tweet input after successful submission
+    $.post('/tweets', formData)
+      .then(function(response) {
+        // Refresh tweets and reset form
+        loadTweets();
         $('#tweet-text').val('');
-      },
-      error: function(error) {
-        // Handle any errors
+        resetCounter();
+      })
+      .catch(function(error) {
         console.error('Error submitting tweet:', error);
-      }
-    });
+      });
   });
-
-  loadTweets(); // Call loadTweets to fetch and render the tweets on page load
-  
 });

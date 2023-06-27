@@ -139,3 +139,24 @@
 .tweet .tweet-icons i:not(:hover) {
     color: gray;
   }
+
+/* Style the error message container */
+#error-message {
+    display: none;
+    background-color: #ffcccc;
+    border: 1px solid #ff0000;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+    color: #ff0000;
+    font-size: 14px;
+  }
+  
+.error-message {
+    margin: 0;
+  }
+
+  @media screen and (min-width: 1024px) {
+    /* CSS rules for desktop */
+  }
+  

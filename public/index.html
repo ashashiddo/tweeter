@@ -20,9 +20,7 @@
   <link rel="stylesheet" href="/styles/header.css">
   <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
 
-  <!--Timeago Library-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.6.7/jquery.timeago.min.js"></script>
-
+  
 </head>
 
 <body>
@@ -50,7 +48,10 @@
     <main class="container">
       <section class="new-tweet">
         <h2 class="form-title">Compose Tweet</h2>
-        <form action="/tweets/" method="POST"> 
+        <form id="tweet-form" method="POST"> 
+            <div class="error-container">
+                <p class="error-message"></p>
+              </div>
           <!-- <label for="tweet-text">What are you humming about?</label> -->
           <textarea name="text" id="tweet-text" placeholder="What are you humming about?" class="textarea-field"></textarea> 
           <div class="counter-container">
@@ -59,12 +60,13 @@
           <div>
             <button type="submit" class="submit-button">Tweet</button>
           </div>
-        </form>        
+        </form>   
+        <div class="error-message"></div> <!-- Add this line for the error message container -->     
       </section>
     </main>
 
      <!-- Tweet Container -->
-     <section class="tweet-container">
+     <section class="tweets-container">
         <article class="tweet">
           <header>
             <img src="/images/profile-hex.png" alt="Profile Image">
@@ -89,6 +91,9 @@
 
  <!-- External JS -->
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ <!--Timeago Library-->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.6.7/jquery.timeago.min.js"></script>
+
 
  <!-- App JS -->
  <script type="text/javascript" src="/scripts/client.js"></script>
