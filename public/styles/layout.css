@@ -25,3 +25,35 @@ main.container {
   margin: 1em auto;
   
 }
+
+/* Responsive styles for tablet and desktop */
+
+@media screen and (min-width: 768px) {
+/* Styles for tablet and desktop screens */
+
+/*Increase the font size for larger screens */
+ nav span {
+    font-size: 24px;
+    }
+  
+/* Example: Adjust the height of the navigation bar for larger screens */
+nav {
+height: 150px;
+    }
+  }
+  
+/* Responsive styles for large desktops */
+  
+@media screen and (min-width: 1024px) {
+/* Styles for large desktop screens */
+  
+/*Adjust the layout for large desktops using flexbox */
+nav div {
+    flex-direction: row;
+   }
+  
+/* Example: Change the color of the icons for large desktops */
+nav div i {
+    color: blue;
+    }
+  }

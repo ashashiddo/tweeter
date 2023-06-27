@@ -155,8 +155,4 @@
 .error-message {
     margin: 0;
   }
-
-  @media screen and (min-width: 1024px) {
-    /* CSS rules for desktop */
-  }
   
