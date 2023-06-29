@@ -1,0 +1,80 @@
+.tweet {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+.tweet header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+  
+.tweet header img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+  
+.tweet header .tweet-header-content {
+    display: flex;
+    flex-direction: column;
+}
+  
+.tweet header .tweet-author {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+}
+  
+.tweet header .tweet-handle {
+    font-size: 14px;
+    color: gray;
+    margin: 0;
+    margin-left: auto;
+}
+  
+.tweet .tweet-content {
+    margin-bottom: 10px;
+}
+  
+.tweet .tweet-content .tweet-text {
+   margin: 0;
+}
+  
+.tweet footer {
+    display: flex;
+    align-items: center;
+}
+  
+.tweet footer .tweet-date {
+    font-size: 14px;
+    color: gray;
+    margin-right: auto;
+}
+  
+.tweet footer .tweet-icons {
+    display: flex;
+    align-items: center;
+}
+  
+.tweet footer .tweet-icons i {
+    margin-right: 5px;
+    font-size: 14px;
+    color: gray;
+}
+
+.tweet {
+    transition: box-shadow 0.3s ease-in-out; /* Add transition for smooth effect */
+}
+  
+.tweet:hover {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Apply box shadow on hover */
+}
+  
+.tweet-icons i:hover {
+    color: red; /* Change icon color on hover */
+    cursor: pointer; /* Add cursor pointer on hover */
+}

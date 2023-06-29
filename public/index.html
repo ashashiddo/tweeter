@@ -19,12 +19,11 @@
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
   <link rel="stylesheet" href="/styles/header.css">
   <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
 
   
 </head>
-
 <body>
-
     <!-- Top nav bar (fixed) -->
     <nav>
       <span>Tweeter</span>
@@ -33,7 +32,6 @@
         <i class="fa-solid fa-angles-down"></i>
       </div>
     </nav>
-
     <header>
       <div>
         <img src="/images/profile-hex.png">
@@ -49,7 +47,7 @@
       <section class="new-tweet">
         <h2 class="form-title">Compose Tweet</h2>
         <form id="tweet-form" method="POST"> 
-            <div class="error-container">
+            <div id="error-message" class="error-container">
                 <p class="error-message"></p>
               </div>
           <!-- <label for="tweet-text">What are you humming about?</label> -->
@@ -98,6 +96,5 @@
  <!-- App JS -->
  <script type="text/javascript" src="/scripts/client.js"></script>
  <script src="/scripts/composer-char-counter.js"></script>
-
   </body>
 </html>

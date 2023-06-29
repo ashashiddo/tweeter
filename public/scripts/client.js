@@ -53,7 +53,7 @@ const renderTweets = function(tweets_data) {
     const $tweet = createTweetElement(tweet);
   
     // Append the tweet element to the tweets container
-    $(".tweets-container").append($tweet);
+    $(".tweets-container").prepend($tweet);
   }
 };
 
@@ -82,9 +82,6 @@ const tweetData = {
   },
   "created_at": 1461116232227
 };
-  
-// const $tweet = createTweetElement(tweetData);
-// console.log($tweet); // View the created tweet element
   
 const data = [
   {
@@ -117,11 +114,13 @@ $(document).ready(function() {
   // Function to append an error message to the error container
   const appendError = function(errorMessage) {
     $errorContainer.text(errorMessage).slideDown();
+    $('.counter').addClass('invalid');
   };
   
   // Function to remove the error message from the error container
   const removeError = function() {
     $errorContainer.text('').slideUp();
+    $('.counter').removeClass('invalid'); 
   };
   
   // Function to reset the character counter

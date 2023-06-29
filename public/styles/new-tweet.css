@@ -3,26 +3,26 @@
     background-color: #f7f7f7;
     border-radius: 8px;
     padding: 20px;
-  }
+}
   
-  /* Style the form title */
-  .form-title {
+/* Style the form title */
+.form-title {
     font-size: 24px;
     margin-bottom: 10px;
-  }
+}
   
-  /* Style the textarea */
-  .textarea-field {
+/* Style the textarea */
+.textarea-field {
     width: 100%;
     padding: 10px;
     border: none;
     border-radius: 4px;
     resize: vertical;
     margin-bottom: 10px;
-  }
+}
   
-  /* tweet button */
-  .submit-button {
+/* tweet button */
+.submit-button {
     background-color: green;
     color: white;
     padding: 10px 20px;
@@ -30,112 +30,112 @@
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
-  }
+}
   
-  /* Style the character counter */
-  .character-counter {
+/* Style the character counter */
+.character-counter {
     font-size: 15px;
     color: gray;
     margin-top: 5px;
-  }
+}
   
-  .counter-container {
+.counter-container {
     text-align: right;
-  }
+}
   
-  /*bottom border*/
-  label[for="tweet-text"] {
+/*bottom border*/
+label[for="tweet-text"] {
     border-bottom: 1px solid black;
     padding-bottom: 5px;
-  }
+}
   
-  #tweet-text {
+#tweet-text {
     border-bottom: 5px solid black;
     padding-bottom: 5px;
     outline: none; 
-  }
+}
   
-  .character-counter.invalid {
+.character-counter.invalid {
     color: red;
-  }
+}
   
   /* Style the tweet container */
   .tweet-container {
     margin-top: 20px;
   }
   
-  /* Style the tweet article */
-  .tweet {
+/* Style the tweet article */
+.tweet {
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 20px;
-  }
+}
   
-  /* Style the tweet header */
-  .tweet header {
+/* Style the tweet header */
+.tweet header {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
-  }
+}
   
-  /* Style the tweet author */
-  .tweet .tweet-author {
+/* Style the tweet author */
+.tweet .tweet-author {
     font-size: 18px;
     margin-bottom: 0;
-  }
+}
   
-  /* Style the tweet handle */
-  .tweet .tweet-handle {
+/* Style the tweet handle */
+.tweet .tweet-handle {
     font-size: 14px;
     color: gray;
     margin-bottom: 0;
-  }
+}
   
-  /* Style the tweet text content */
-  .tweet .tweet-text {
+/* Style the tweet text content */
+.tweet .tweet-text {
     font-size: 16px;
     margin-bottom: 15px;
-  }
+}
   
-  /* Style the tweet date */
-  .tweet .tweet-date {
+/* Style the tweet date */
+.tweet .tweet-date {
     font-size: 14px;
     color: gray;
     margin-bottom: 0;
-  }
+}
   
-  /* Style the tweet icons */
-  .tweet .tweet-icons {
+/* Style the tweet icons */
+.tweet .tweet-icons {
     display: flex;
     justify-content: flex-end;
-  }
+}
   
-  /* Add box shadow on tweet hover */
-  .tweet:hover {
+/* Add box shadow on tweet hover */
+.tweet:hover {
     box-shadow: 0px 0px 5px 2px rgba(3, 3, 3, 0.1);
-  }
+}
   
-  /* Change color of tweet icons on hover */
-  .tweet:hover .tweet-icons i {
+/* Change color of tweet icons on hover */
+.tweet:hover .tweet-icons i {
     color: #1da1f2;
-  }
+}
   
-  /* Style individual tweet icons */
-  .tweet .tweet-icons i {
+/* Style individual tweet icons */
+.tweet .tweet-icons i {
     margin-left: 10px;
     font-size: 16px;
     color: gray;
     cursor: pointer;
-  }
+}
   
-  /* Change color of individual tweet icons on hover */
+/* Change color of individual tweet icons on hover */
 .tweet .tweet-icons i:hover {
     color: #1da1f2;
-  }
+}
 
-  /* Reset color of tweet icons when not hovered */
+/* Reset color of tweet icons when not hovered */
 .tweet .tweet-icons i:not(:hover) {
     color: gray;
   }
@@ -150,9 +150,15 @@
     margin-bottom: 10px;
     color: #ff0000;
     font-size: 14px;
-  }
+}
   
 .error-message {
     margin: 0;
-  }
+}
+
+@media only screen and (min-width: 1024px) {
+    .new-tweet {
+    width: 100%;
+    } 
+}
   
