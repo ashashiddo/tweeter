@@ -157,4 +157,4 @@ $(document).ready(function() {
         console.error('Error submitting tweet:', error);
       });
   });
-});
+}); 
