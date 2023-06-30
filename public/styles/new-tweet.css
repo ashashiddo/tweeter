@@ -61,7 +61,7 @@ label[for="tweet-text"] {
   
   /* Style the tweet container */
   .tweet-container {
-    margin-top: 20px;
+    margin-top: 5px;
   }
   
 /* Style the tweet article */
@@ -69,8 +69,8 @@ label[for="tweet-text"] {
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: 10px;
+    margin-bottom: 5px;
 }
   
 /* Style the tweet header */
@@ -160,5 +160,17 @@ label[for="tweet-text"] {
     .new-tweet {
     width: 100%;
     } 
+
+    .container {
+        margin-top: 5em;
 }
-  
+ #new-tweet-header {
+  margin-top: 5em;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+ }
+}
