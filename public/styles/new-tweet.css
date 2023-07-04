@@ -205,7 +205,7 @@ label[for="tweet-text"] {
   
 .tweet .tweet-content {
     margin-bottom: 10px;
-}
+    border-bottom: 1px solid #ccc;}
   
 .tweet .tweet-content .tweet-text {
    margin: 0;
