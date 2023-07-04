@@ -10,10 +10,16 @@ const createTweetElement = function(tweet) {
   
   // Create the HTML structure for the tweet content
   const $header = $("<header>").addClass("tweet-header");
+  const $avatarplusName = $("<div>").addClass("avatar-name");
   const $avatar = $("<img>").addClass("avatar").attr("src", tweet.user.avatars);
   const $username = $("<span>").addClass("username").text(tweet.user.name);
+  $avatarplusName.append($avatar, $username);
+
   const $handle = $("<span>").addClass("handle").text(tweet.user.handle);
-  $header.append($avatar, $username, $handle);
+  const $handleContainer = $("<div>").addClass("handle-container");
+  $handleContainer.append($handle);
+
+  $header.append($avatarplusName,$handleContainer);
   
   const $content = $("<div>").addClass("tweet-content").text(tweet.content.text);
   const $footer = $("<footer>").addClass("tweet-footer");

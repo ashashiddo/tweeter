@@ -74,12 +74,12 @@ label[for="tweet-text"] {
 }
   
 /* Style the tweet header */
-.tweet header {
+/* .tweet header {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
 }
-  
+   */
 /* Style the tweet author */
 .tweet .tweet-author {
     font-size: 18px;
@@ -156,6 +156,7 @@ label[for="tweet-text"] {
     margin: 0;
 }
 
+
 @media only screen and (min-width: 1024px) {
     .new-tweet {
     width: 100%;
@@ -164,13 +165,19 @@ label[for="tweet-text"] {
     .container {
         margin-top: 5em;
 }
- #new-tweet-header {
-  margin-top: 5em;
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 1em;
+ 
+  #new-tweet-header {
+    margin:3em;
+    margin-top: 5em;
+    margin-left: 5em;
+    width: 50%;
+    
+   }
+ }
+ @media only screen and (max-width: 1023px) {
+    #new-tweet-header {
+    margin: 0;
+    margin-top: 5em;
+    width: 100%;   
  }
 }
