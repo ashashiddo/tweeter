@@ -73,19 +73,7 @@ label[for="tweet-text"] {
     margin-bottom: 5px;
 }
   
-/* Style the tweet header */
-/* .tweet header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-}
-   */
-/* Style the tweet author */
-.tweet .tweet-author {
-    font-size: 18px;
-    margin-bottom: 0;
-}
-  
+
 /* Style the tweet handle */
 .tweet .tweet-handle {
     font-size: 14px;
@@ -141,7 +129,7 @@ label[for="tweet-text"] {
   }
 
 /* Style the error message container */
-#error-message {
+.error-message {
     display: none;
     background-color: #ffcccc;
     border: 1px solid #ff0000;
@@ -152,9 +140,7 @@ label[for="tweet-text"] {
     font-size: 14px;
 }
   
-.error-message {
-    margin: 0;
-}
+
 
 
 @media only screen and (min-width: 1024px) {
@@ -180,4 +166,77 @@ label[for="tweet-text"] {
     margin-top: 5em;
     width: 100%;   
  }
+}
+.tweet {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+ 
+  
+.tweet header img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+  
+.tweet-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+  
+.tweet header .tweet-author {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+}
+  
+.tweet header .tweet-handle {
+    font-size: 14px;
+    color: gray;
+    margin: 0;
+    margin-left: auto;
+}
+  
+.tweet .tweet-content {
+    margin-bottom: 10px;
+}
+  
+.tweet .tweet-content .tweet-text {
+   margin: 0;
+}
+.tweet footer {
+    display: flex;
+    justify-content: space-between;
+    
+} 
+.tweet footer .tweet-date {
+    font-size: 14px;
+    color: gray;
+    margin-right: auto;
+}
+  
+  
+.tweet footer .tweet-icons i {
+    margin-right: 5px;
+    font-size: 14px;
+    color: gray;
+}
+
+.tweet {
+    transition: box-shadow 0.3s ease-in-out; /* Add transition for smooth effect */
+}
+  
+.tweet:hover {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Apply box shadow on hover */
+}
+  
+.icons :hover {
+    color: red; /* Change icon color on hover */
+    cursor: pointer; /* Add cursor pointer on hover */
 }
